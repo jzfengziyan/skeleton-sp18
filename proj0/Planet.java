@@ -5,7 +5,7 @@ public class Planet{
     public double yyVel;
     public double mass;
     public String imgFileName;
-    public static final double G = 6.67 * Math.pow(10, -11);//declare a constant
+    //public static final double G = 6.67 * Math.pow(10, -11);//declare a constant
 
 
     public Planet(double xP, double yP, double xV,double yV, double m, String img){
@@ -35,7 +35,7 @@ public class Planet{
     }
 
     public double calcForceExertedBy(Planet p){
-        //double G = 6.67 * Math.pow(10, -11);
+        double G = 6.67 * Math.pow(10, -11);
         double distance = calcDistance(p);
         double force = (G * p.mass * this.mass) / (distance * distance);
         return force;
