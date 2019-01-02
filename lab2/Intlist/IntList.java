@@ -96,11 +96,14 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        if(A == null){
+        if (A == null) {
             return B;
+        } else if (B == null) {
+            return A;
+        } else {
+            IntList L = new IntList(A.first, catenate(A.rest, B));
+            return L;
         }
-        IntList L  = new IntList(A.first, catenate(A.rest, B));
-        return L;
     }
 
 
