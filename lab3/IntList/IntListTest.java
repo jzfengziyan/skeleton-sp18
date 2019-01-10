@@ -66,7 +66,7 @@ public class IntListTest {
         assertEquals(IntList.of(1, 2, 3), A);
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void testReverse() {
         IntList A = IntList.of(1, 2, 3);
         IntList exp1 = IntList.of(3, 2, 1);
@@ -74,10 +74,7 @@ public class IntListTest {
         assertEquals(IntList.of(3, 2, 1), A);
 
         //null test
-        IntList B = IntList.of(null);
-        IntList exp2 = IntList.of(null);
-        assertEquals(exp2, IntList.reverse(B));
-        assertEquals(IntList.of(null), B);
+        assertEquals(null, IntList.reverse(null));
 
     }
 

@@ -110,19 +110,28 @@ public class IntList {
      * This method is destructive. If given null
      * as an input, returns null.
      */
-
+/*It's necessary to debug it and check in the java visualizer,because you can't change A by using: A = frontOfReversed.
+(It will create a new A which is only alive in this method, and any changes to this new A won't change the original A)
+You can only change A by accessing A.first or A.rest. Maybe it's the same as C language, if you have int *p. You can change the content by change *p
+ */
     public static IntList reverse(IntList A) {
-        IntList frontOfReversed = null;
-        IntList nextNodeToAdd = A;
-        while (nextNodeToAdd != null) {
-            IntList remainderOfOriginal = nextNodeToAdd.rest;
-            nextNodeToAdd.rest = frontOfReversed;
-            frontOfReversed = nextNodeToAdd;
-            nextNodeToAdd = remainderOfOriginal;
+        if (A == null) {
+            return null;
         }
-        A = frontOfReversed;
-        return A;
+        else {
+            IntList frontOfReversed = null;
+            IntList nextNodeToAdd = new IntList(A.first, A.rest);
+            while (nextNodeToAdd != null) {
+                IntList remainderOfOriginal = nextNodeToAdd.rest;
+                nextNodeToAdd.rest = frontOfReversed;
+                frontOfReversed = nextNodeToAdd;
+                nextNodeToAdd = remainderOfOriginal;
+            }
+            A.first = frontOfReversed.first;
+            return A;
+        }
     }
+
 
 
 
