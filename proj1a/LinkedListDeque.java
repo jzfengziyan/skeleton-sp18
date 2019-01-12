@@ -1,10 +1,10 @@
-public class LinkedListDeque<Type> {
+public class LinkedListDeque<T> {
         private class StuffNode {
-                public Type item;
+                public T item;
                 public StuffNode next;
                 public StuffNode previous;
 
-                public StuffNode(Type i, StuffNode n, StuffNode m) {
+                public StuffNode(T i, StuffNode n, StuffNode m) {
                         item = i;
                         next = n;
                         previous = m;
@@ -21,7 +21,7 @@ public class LinkedListDeque<Type> {
         }
 
         /**Build a linkedlist with an element x*/
-        public LinkedListDeque(Type x) {
+        public LinkedListDeque(T x) {
                 sentinel = new StuffNode(null, sentinel, sentinel);
                 sentinel.next = new StuffNode(x, sentinel, sentinel);
                 sentinel.previous = sentinel.next;
@@ -34,7 +34,7 @@ public class LinkedListDeque<Type> {
         }
 
         /** Adds x to the front of the list. */
-        public void addFirst(Type x) {
+        public void addFirst(T x) {
 
                 if(this.isEmpty()){
                         sentinel.next = new StuffNode(x, sentinel, sentinel);
@@ -48,7 +48,7 @@ public class LinkedListDeque<Type> {
         }
 
         /** Adds x to the Last element of the list. */
-        public void addLast(Type x) {
+        public void addLast(T x) {
                 if(this.isEmpty()){
                         sentinel.next = new StuffNode(x, sentinel, sentinel);
                         sentinel.previous = sentinel.next;
@@ -82,12 +82,12 @@ public class LinkedListDeque<Type> {
         }
 
         /**remove the first element of the linklist and return the value*/
-        public Type removeFirst(){
+        public T removeFirst(){
                 if(this.isEmpty()){
                         return null;
                 }
                 else{
-                        Type element = sentinel.next.item;
+                        T element = sentinel.next.item;
                         //if there is only one element ? Have to also deal with sentinel.previous
                         if(sentinel.next.next.equals(sentinel)){
                                 sentinel.next = sentinel;
@@ -103,12 +103,12 @@ public class LinkedListDeque<Type> {
         }
 
         /**remove the last element of the linklist and return the value*/
-        public Type removeLast(){
+        public T removeLast(){
                 if(this.isEmpty()){
                         return null;
                 }
                 else{
-                        Type element = sentinel.previous.item;
+                        T element = sentinel.previous.item;
                         //if there is only one element ? Have to also deal with sentinel.next
                         if(sentinel.next.next.equals(sentinel)){
                                 sentinel.next = sentinel;
@@ -124,7 +124,7 @@ public class LinkedListDeque<Type> {
         }
 
         /**get the element of a certain index in the list, index begins from 0 (implemented iteratively)*/
-        public Type get(int index){
+        public T get(int index){
                 if(index > (this.size - 1) || index < 0 || this.size == 0){
                         return null;
                 }
@@ -138,7 +138,7 @@ public class LinkedListDeque<Type> {
                 }
         }
 
-        public Type getRecursiveHelper(StuffNode currentNode, int index){
+        public T getRecursiveHelper(StuffNode currentNode, int index){
                 if (index == 0){
                         return currentNode.item;
                 }
@@ -149,7 +149,7 @@ public class LinkedListDeque<Type> {
 
         }
         /**get the element of a certain index in the list, index begins from 0 (implemented recursively)*/
-        public Type getRecursive(int index){
+        public T getRecursive(int index){
                 return getRecursiveHelper(sentinel.next, index);
         }
 
