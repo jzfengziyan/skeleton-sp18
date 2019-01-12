@@ -21,12 +21,12 @@ public class LinkedListDeque<T> {
         }
 
         /**Build a linkedlist with an element x*/
-        public LinkedListDeque(T x) {
+        /*public LinkedListDeque(T x) {
                 sentinel = new StuffNode(null, sentinel, sentinel);
                 sentinel.next = new StuffNode(x, sentinel, sentinel);
                 sentinel.previous = sentinel.next;
                 size = 1;
-        }
+        }*/
 
         /** Check if the deque is empty*/
         public boolean isEmpty(){
@@ -138,7 +138,7 @@ public class LinkedListDeque<T> {
                 }
         }
 
-        public T getRecursiveHelper(StuffNode currentNode, int index){
+        private T getRecursiveHelper(StuffNode currentNode, int index){
                 if (index == 0){
                         return currentNode.item;
                 }

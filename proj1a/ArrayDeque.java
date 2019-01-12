@@ -38,7 +38,7 @@ public class ArrayDeque<T> {
     }
 
     /**Increase the index in a circular way, could also be implements as: return n = (n + 1) % length.*/
-    public static int increase(int n, int length) {
+    private static int increase(int n, int length) {
         if (n == (length - 1)) {
             return 0;
         }
@@ -48,7 +48,7 @@ public class ArrayDeque<T> {
     }
 
     /**Decrese the index in a circular way*/
-    public static int decrease(int n, int length) {
+    private static int decrease(int n, int length) {
         if (n == 0) {
             return length - 1;
         }
